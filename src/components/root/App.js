@@ -2,14 +2,24 @@ import { react } from 'react';
 import { Container } from "reactstrap";
 import Dashboard from './Dashboard';
 import Navi from '../navi/Navi';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Switch
+} from "react-router-dom";
+import CartDetail from '../cart/CartDetail';
 
 
 function App() {
   return (
     <Container>
       <Navi />
-      <Dashboard />
-    </Container>
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/cart" component={CartDetail} />
+      </Switch>
+    </Container >
   );
 }
 
