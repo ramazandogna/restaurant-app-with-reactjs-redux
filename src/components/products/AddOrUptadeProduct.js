@@ -55,14 +55,14 @@ export function getProductById(products, productId) {
 function mapStateToProps(state, ownProps) {
   const productId = ownProps.match.params.productId;
   const product =
-    productId && state.productReducer.lenght > 0
-      ? getProductById(state.productReducer.productId)
+    productId && state.productListReducer.length > 0
+      ? getProductById(state.productListReducer.productId)
       : {};
 
   return {
     product: product,
-    products: state.productReducer,
-    categories: state.category,
+    products: state.productListReducer,
+    categories: state.categoryListReducer,
   };
 }
 
