@@ -7,7 +7,7 @@ const TextInput = ({ name, label, onChange, value, placeHolder, error }) => {
   }
 
   return (
-    <div c lassName="wrapperClass">
+    <div className="wrapperClass">
       <label htmlFor={name}></label>
       <div className="field">
         <input
@@ -24,3 +24,5 @@ const TextInput = ({ name, label, onChange, value, placeHolder, error }) => {
     </div>
   );
 };
+
+export default TextInput;

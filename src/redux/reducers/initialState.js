@@ -5,5 +5,5 @@ export default {
   categories: [],
   products: [],
   cart: [],
-  saveProduct: { checked: true },
+  saveProduct: {},
 };
