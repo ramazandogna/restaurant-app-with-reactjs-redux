@@ -15,6 +15,7 @@ function AddOrUptadeProduct({
   ...props
 }) {
   const [product, setProduct] = useState({ ...props.product });
+  const [errors, setErrors] = useState({});
   useEffect(() => {
     if (categories.lenght === 0) {
       getCategories();
@@ -28,6 +29,22 @@ function AddOrUptadeProduct({
       ...previousProduct,
       [name]: name === "categoryId" ? parseInt(value, 10) : value,
     }));
+
+    validate(name, value);
+  }
+
+  function validate(name, value) {
+    if (name === "productName" && value === "") {
+      setErrors((previousErrors) => ({
+        ...previousErrors,
+        productName: "Ürün ismi olmalıdır",
+      }));
+    } else {
+      setErrors((previousErrors) => ({
+        ...previousErrors,
+        productName: "",
+      }));
+    }
   }
 
   function handleSave(event) {
@@ -43,6 +60,7 @@ function AddOrUptadeProduct({
       categories={categories}
       onChange={handleChange}
       onSave={handleSave}
+      errors={errors}
     />
   );
 }

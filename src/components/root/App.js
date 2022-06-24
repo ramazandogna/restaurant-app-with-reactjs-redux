@@ -5,6 +5,7 @@ import Navi from "../navi/Navi";
 import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
 import CartDetail from "../cart/CartDetail";
 import AddOrUptadeProduct from "../products/AddOrUptadeProduct";
+import NotFound from "../common/NotFound";
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
           path="/saveproduct/:productId"
           component={AddOrUptadeProduct}
         />
+        <Route exact path="/saveproduct" component={AddOrUptadeProduct} />
         <Route exact path="/cart" component={CartDetail} />
+        <Route component={NotFound} />
       </Switch>
     </Container>
   );

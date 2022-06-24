@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -7,8 +8,8 @@ import {
   Nav,
   NavItem,
   NavLink,
-} from 'reactstrap';
-import CartSummary from '../cart/CartSummary';
+} from "reactstrap";
+import CartSummary from "../cart/CartSummary";
 
 export default class Navi extends React.Component {
   constructor(props) {
@@ -16,28 +17,30 @@ export default class Navi extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
   }
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
   render() {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarBrand>
+            <Link to="/">Northwind</Link>
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem>
+              <NavLink>
+                <Link to="/saveproduct">Veri Ekle</Link>
+              </NavLink>
               <CartSummary />
             </Nav>
           </Collapse>
